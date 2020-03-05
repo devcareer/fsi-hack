@@ -6,10 +6,10 @@ const transactionSchema = new Schema ({
         type: Number,
     },
     old_balance: {
-        type: Number,
+        type: String,
     },
     new_balance: {
-        type: Number
+        type: String,
     },
     user: {
         type: Schema.Types.ObjectId,
