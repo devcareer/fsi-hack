@@ -30,7 +30,7 @@
   background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .4)), url("https://res.cloudinary.com/john-pels/image/upload/v1583492246/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 5em;
+  padding-top: 8em;
 }
 
 .top-info__text {
@@ -46,14 +46,18 @@
   color: #FFF;
 }
 
-.top-info__text .top-info__p {
+.top-info__text .top-info__ul {
+  margin-left: 5em;
+}
+
+.top-info__text .top-info__ul li {
   font-weight: normal;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 41px;
   color: #FFF;
 }
 
-.top-info__text .top-info__btn {
+/* .top-info__text .top-info__btn {
   width: 251px;
   height: 70px;
   background: #6fcf97;
@@ -69,7 +73,7 @@
 
 .top-info__text .top-info__btn:hover {
   background: rgb(25, 136, 71);
-}
+} */
 
 
 .how-it-works {
@@ -254,5 +258,9 @@ footer {
 
   .team-slider .slider .item {
     margin: 5px;
+  }
+
+  .top-info__text .top-info__ul {
+    margin-left: 1em;
   }
 }
