@@ -3,6 +3,8 @@ const { nibss } = require('innovation-sandbox');
 
 config();
 
+const BVNr = nibss.Bvnr;
+
 const {
   BVN,
   FSI_SANDBOX_URL,
@@ -16,34 +18,25 @@ let password;
 let ivkey;
 let aes_key;
 
-const response = reset(sandbox_key, organization_code);
-console.log('response option +==>', response);
-
-// reset request token
-nibss
-  .Bvnr
-  .Reset({ sandbox_key, organization_code })
-  .then((response) => {
-    password = response.password;
-    ivkey = response.ivkey;
-    aes_key = response.aes_key;
-  })
-  .catch((error) => {
-    console.log(error)
+// get reset token
+const resetToken = (sandbox_key, organization_code) => new Promise((resolve, reject) => {
+  BVNr.Reset({sandbox_key, organization_code}, (error, payload) => {
+    if (error) {
+      console.log(error);
+      reject(error);
+    } else {
+      console.log(payload);
+      resolve(payload);
+    }
   });
+});
 
-// verify single BVN
-nibss
-  .Bvnr
-  .VerifySingleBVN({
-    bvn: '22161932105',
-    sandbox_key,
-    organization_code,
-    password,
-    ivkey,
-    aes_key,
-  })
-  .then(response => {
-    console.log('BVN result', response);
-  })
-  .catch(error => console.log(error));
+const verifyBVN = ({ options }) => new Promise((resolve, reject) => {
+  const result = await BVNr.VerifySingleBVN({options});
+  return result;
+});
+
+module.exports = {
+  resetToken,
+  verifyBVN
+};
