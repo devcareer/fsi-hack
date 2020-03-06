@@ -1,16 +1,18 @@
+'''
+
+
+
+
+
+
+
+'''
 import pandas as pd
 import numpy as np
-%matplotlib inline
-import matplotlib.pyplot as plt
-import matplotlib.lines as mlines
-from mpl_toolkits.mplot3d import Axes3D
-import seaborn as sns
 from sklearn.model_selection import train_test_split, learning_curve
 from sklearn.metrics import average_precision_score
-from xgboost.sklearn import XGBClassifier
-from xgboost import plot_importance, to_graphviz
+from sklearn.linear_model import LogisticRegression
 import pickle
-
 
 df = pd.read_csv('Fraud_data_kaggle.csv')
 X = df.loc[(df.type == 'TRANSFER') | (df.type == 'CASH_OUT')]
@@ -57,11 +59,9 @@ trainX, testX, trainY, testY = train_test_split(X, Y, test_size = 0.2, \
                                                 random_state = randomState)
 
 # Long computation in this cell (~1.8 minutes)
-weights = (Y == 0).sum() / (1.0 * (Y == 1).sum())
-clf = XGBClassifier(max_depth = 3, scale_pos_weight = weights, \
-                n_jobs = 4)
-probabilities = clf.fit(trainX, trainY).predict_proba(testX)
-print('AUPRC = {}'.format(average_precision_score(testY, \
-                                              probabilities[:, 1])))
+# weights = (Y == 0).sum() / (1.0 * (Y == 1).sum())
+clf = LogisticRegression()
+log = clf.fit(trainX, trainY)
+predict = log.predict(testX)  
 
-pickle.dump(clf, open('final_prediction.pkl', 'wb'))      
+pickle.dump(log, open('logistic.pkl', 'wb'))
