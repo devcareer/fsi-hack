@@ -27,10 +27,14 @@
 }
 
 .top-info {
-  padding-top: 2em;
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .4)), url("https://res.cloudinary.com/john-pels/image/upload/v1583492246/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 5em;
 }
 
 .top-info__text {
+  min-height: 550px;
   margin-top: 4em;
   padding-bottom: 2em;
 }
@@ -39,14 +43,14 @@
   font-weight: 600;
   font-size: 35px;
   line-height: 48px;
-  color: #000000;
+  color: #FFF;
 }
 
 .top-info__text .top-info__p {
   font-weight: normal;
   font-size: 30px;
   line-height: 41px;
-  color: #4f4f4f;
+  color: #FFF;
 }
 
 .top-info__text .top-info__btn {
@@ -67,14 +71,9 @@
   background: rgb(25, 136, 71);
 }
 
-.top-info__avatar .avatar {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 .how-it-works {
-  padding: 1.2em 0 3em 0;
+  padding: 3em 0 4em 0;
   background: rgba(247, 247, 247, 0.96);
 }
 
@@ -108,16 +107,65 @@
   color: #4f4f4f;
 }
 
+.test {
+  padding: 3em 0;
+}
+
+.test .test-image {
+  display: block;
+  width: 100%;
+}
+
+.test .t-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.test-code {
+  margin-top: 3em;
+}
+
+.test__h6 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 41px;
+  margin-bottom: 1.5em;
+  color: #333333;
+}
+
+.test__h2 {
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 109px;
+  color: #2F80ED;
+}
+
+.test__works {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 41px;
+  color: #333333;
+}
+
 .team-slider {
+  background: rgba(247, 247, 247, 0.96);
   display: flex;
   padding: 1.2em 0 3em 0;
 }
+
 
 .team-slider .team__h3 {
   font-weight: 600;
   font-size: 30px;
   line-height: 41px;
   color: #4f4f4f;
+}
+
+.team-slider .team__p {
+  font-size: 30px;
+  line-height: 41px;
+  color: #4F4F4F;
 }
 
 .team-slider .slider .item {
