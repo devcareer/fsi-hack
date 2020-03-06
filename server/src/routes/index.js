@@ -1,11 +1,12 @@
 const { Router } = require('express');
-const { reset } = require('../services/nibss');
+const menu = require('../plugins/menu');
 
 const router = Router();
 
-router.get(
-  '/reset',
-  reset,
-);
+router.post('/ussd', function(request, response) {
+  menu.run(request.body, ussdResult => {
+    response.send(ussdResult);
+  });
+});
 
 module.exports = router;

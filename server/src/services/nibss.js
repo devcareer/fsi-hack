@@ -16,17 +16,11 @@ let password;
 let ivkey;
 let aes_key;
 
-async function reset(sandbox_key, organization_code) {
-  const credentials = await nibss.Bvnr.Reset({ sandbox_key, organization_code });
-  console.log('credentials ==>', credentials)
-  return credentials;
-}
-
 const response = reset(sandbox_key, organization_code);
 console.log('response option +==>', response);
 
 // reset request token
-/* nibss
+nibss
   .Bvnr
   .Reset({ sandbox_key, organization_code })
   .then((response) => {
@@ -37,9 +31,9 @@ console.log('response option +==>', response);
   .catch((error) => {
     console.log(error)
   });
-*/
+
 // verify single BVN
-/* nibss
+nibss
   .Bvnr
   .VerifySingleBVN({
     bvn: '22161932105',
@@ -53,4 +47,3 @@ console.log('response option +==>', response);
     console.log('BVN result', response);
   })
   .catch(error => console.log(error));
-*/
