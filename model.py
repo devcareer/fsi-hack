@@ -31,7 +31,7 @@ X = X.drop(['nameOrig', 'nameDest', 'isFlaggedFraud'], axis = 1)
 # Binary-encoding of labelled data in 'type'
 X.loc[X.type == 'TRANSFER', 'type'] = 0
 X.loc[X.type == 'CASH_OUT', 'type'] = 1
-X.type = X.type.astype(int) # convert dtype('O') to dtype(int)
+X.type = X.type.astype('float64') # convert dtype('O') to dtype(int)
 
 Xfraud = X.loc[Y == 1]
 XnonFraud = X.loc[Y == 0]
@@ -64,4 +64,4 @@ clf = LogisticRegression()
 log = clf.fit(trainX, trainY)
 predict = log.predict(testX)  
 
-pickle.dump(log, open('logistic.pkl', 'wb'))
+pickle.dump(log, open('logistic2.pkl', 'wb'))
